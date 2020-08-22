@@ -67,6 +67,18 @@ public class PlayerController : MonoBehaviour
             gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f); 
 
         }
+        else if (collision.gameObject.name == "WhiskeyOfStrength")
+        {
+            IsInvincible = true;
+            collision.gameObject.SetActive(false);
+            var audioManager = GameObject.Find("AudioManager");
+            audioManager.GetComponent<AudioManager>().PlayPotionPickup();
+
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+            gameManger.PlayerDialog("Imbibing this familar spirit steels resolve and body.", 1f);
+
+        }
     }
 
 

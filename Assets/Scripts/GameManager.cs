@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Image DialogModal; 
 
 
-    public float DialogDelay = .5f ; 
+    public float DialogDelay = 1.25f ; 
 
     private void Update()
     {
