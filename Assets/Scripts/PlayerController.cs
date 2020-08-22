@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +14,12 @@ public class PlayerController : MonoBehaviour
     float moveLimiter = 0.7f;
 
     public float runSpeed = 20.0f;
+
+
+    public GameObject blockingTileMapObject;
+
+
+    Tilemap tilemap;
 
 
     /// <summary>
@@ -31,7 +38,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-
+        if (blockingTileMapObject != null)
+        {
+            tilemap = blockingTileMapObject.GetComponent<Tilemap>();
+        }
 
 
     }
@@ -78,6 +88,18 @@ public class PlayerController : MonoBehaviour
 
             gameManger.PlayerDialog("Imbibing this familar spirit steels resolve and body.", 1f);
 
+        }
+        else if(collision.gameObject.name == "ReapersBreath")
+        {
+            IsSpectral = true;
+            collision.gameObject.SetActive(false);
+            var audioManager = GameObject.Find("AudioManager");
+            audioManager.GetComponent<AudioManager>().PlayPotionPickup();
+
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+            gameManger.PlayerDialog("The vapors burn my nostrils. The world seems to fade around me.", 1f);
+            blockingTileMapObject.GetComponent<TilemapCollider2D>().enabled = false;
         }
     }
 

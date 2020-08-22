@@ -53,7 +53,7 @@ public class DamageHandler : MonoBehaviour
         {
             PlayerHealth = 0; 
             invulnTimer = inulnPeriod;
-        }else if(collision.gameObject.name == "FireProjectile(Clone)")
+        }else if(collision.gameObject.tag == "Projectile" && !gameObject.GetComponent<PlayerController>().IsInvincible)
         {
             PlayerHealth = 0;
             invulnTimer = inulnPeriod;
