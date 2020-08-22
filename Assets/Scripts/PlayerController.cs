@@ -22,10 +22,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public bool IsInvincible = false;
     public bool IsLevitate = false;
-    public bool IsSpectral = false; 
-
-
-
+    public bool IsSpectral = false;
+    
     private bool _isDead = false; 
 
     public Text GameOverText; 
@@ -33,6 +31,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+
+
+
     }
 
     void Update()
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
         {
             IsLevitate = true;
             collision.gameObject.SetActive(false);
+            var audioManager = GameObject.Find("AudioManager");
+            audioManager.GetComponent<AudioManager>().PlayPotionPickup();
         }
     }
 
@@ -76,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
+
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayDeathSound();
         _isDead = true;
 
         var go = GameObject.Find("GameManager");

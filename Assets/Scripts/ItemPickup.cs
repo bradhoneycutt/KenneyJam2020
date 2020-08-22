@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,8 +12,9 @@ public class ItemPickup : MonoBehaviour
 
         switch (gameObject.name)
         {
-            case "MushroomOfSmall":
-                rigidbody2D.transform.localScale = new Vector3(.5f, .5f, 1f);
+            case "Player":
+                
+                
                 break;
                  
             default:
@@ -20,6 +22,6 @@ public class ItemPickup : MonoBehaviour
         }
         
         
-        Destroy(gameObject);
+        
     }
 }

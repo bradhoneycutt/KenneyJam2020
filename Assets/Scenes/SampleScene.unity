@@ -263,7 +263,6 @@ MonoBehaviour:
   HalfHeart: {fileID: -1472550437543738901, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
   FullHeart: {fileID: -7598079293263388763, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
   EmptyHeart: {fileID: 6875251341071537486, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
-  AnimationDelay: 0.5
 --- !u!1 &141301923
 GameObject:
   m_ObjectHideFlags: 0
@@ -7273,6 +7272,53 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1586690462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586690464}
+  - component: {fileID: 1586690463}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1586690463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586690462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1513242ac144649adaf4634d4f6712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PotionSound: {fileID: 8300000, guid: 638b75191bcc3014eac45a802cba0242, type: 3}
+  DamageSound: {fileID: 8300000, guid: 86264984458a4f942bafcc90c31ea9d2, type: 3}
+  DeathSound: {fileID: 8300000, guid: 750e1c45234cd1f4fb76c7220d8851d0, type: 3}
+  LevelExitSound: {fileID: 8300000, guid: ed36a0ded0d07d842bdee250a269d7ac, type: 3}
+--- !u!4 &1586690464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586690462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 188.7153, y: 846.04193, z: -36.97943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1675108823
 GameObject:
   m_ObjectHideFlags: 0

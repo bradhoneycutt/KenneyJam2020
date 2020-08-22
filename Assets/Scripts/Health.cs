@@ -7,13 +7,13 @@ public class Health : MonoBehaviour
 {
     public int PlayerHealth;
     public int NumberHearts;
+   
 
     public Image[] Hearts;
     public Sprite HalfHeart;
     public Sprite FullHeart;
     public Sprite EmptyHeart;
-    public float AnimationDelay = .5f;
-    private float AnimationCoolDown = 0; 
+
 
     private void Update()
     {
@@ -41,20 +41,6 @@ public class Health : MonoBehaviour
 
             
 
-        }
-
-        AnimationCoolDown -= Time.deltaTime;
-        if (AnimationCoolDown <= 0)
-        {
-            for (int i = 0; i < Hearts.Length; i++)
-            {
-                var currentPos = Hearts[i].rectTransform.anchoredPosition;
-
-
-                Hearts[i].rectTransform.anchoredPosition = currentPos + new Vector2(0f, -10.5f);
-                Hearts[i].rectTransform.anchoredPosition = currentPos; 
-            }
-            AnimationCoolDown = AnimationDelay; 
         }
     }
 }

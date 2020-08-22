@@ -9,6 +9,8 @@ public class DamageHandler : MonoBehaviour
     public int PlayerHealth = 6;
     public float inulnPeriod = 0;
     public GameObject damageTilemapGameObject;
+
+
     Tilemap tilemap;
 
     float invulnTimer = 0f;
@@ -22,6 +24,12 @@ public class DamageHandler : MonoBehaviour
 
     private void Start()
     {
+
+        //_damageAudioSource = gameObject.AddComponent<AudioSource>();
+        //_damageAudioSource.loop = false;
+        //_damageAudioSource.playOnAwake = false;
+        //_damageAudioSource.clip = DamageSound;
+
         correctLayer = gameObject.layer;
         spriteRender = GetComponent<SpriteRenderer>();
         if (spriteRender == null)
@@ -83,7 +91,7 @@ public class DamageHandler : MonoBehaviour
         }
         if (PlayerHealth <= 0)
         {
-           
+            
             Die();
             if(gameObject.name == "Player")
             {
@@ -98,6 +106,8 @@ public class DamageHandler : MonoBehaviour
             GameObject.Find("Player").GetComponent<Health>().PlayerHealth -= 1;
             PlayerHealth = PlayerHealth - 1; 
             _coolDown = DamageDelay;
+            //_damageAudioSource.Play();
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayDamageSound();
         }
 
     }
