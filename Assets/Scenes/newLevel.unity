@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: GameOverText
       value: 
       objectReference: {fileID: 1987250318}
+    - target: {fileID: 2927074466861520740, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
+      propertyPath: blockingTileMapObject
+      value: 
+      objectReference: {fileID: 1405902139}
     - target: {fileID: 2927074466861520741, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.79
@@ -6928,11 +6932,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4581638642687695394, guid: b0e4c84ba77de9540b5179489686d18b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.5
+      value: 8.48
       objectReference: {fileID: 0}
     - target: {fileID: 4581638642687695394, guid: b0e4c84ba77de9540b5179489686d18b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -9.44
       objectReference: {fileID: 0}
     - target: {fileID: 4581638642687695394, guid: b0e4c84ba77de9540b5179489686d18b, type: 3}
       propertyPath: m_LocalPosition.z
