@@ -15,9 +15,6 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log("PlayerHealth" + PlayerHealth);
-
         for (int i = 0; i < Hearts.Length; i++)
         {
 

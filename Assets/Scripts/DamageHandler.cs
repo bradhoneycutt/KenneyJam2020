@@ -42,10 +42,11 @@ public class DamageHandler : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         //traps, spikes and water instantly kill the player. Curse damage happens over time.
         Debug.Log("You Fucking died!");
         Debug.Log("Object Name: " +collision.gameObject.name); 
-        if (tilemap != null && damageTilemapGameObject == collision.gameObject)
+        if (tilemap != null && damageTilemapGameObject == collision.gameObject && !gameObject.GetComponent<PlayerController>().IsLevitate)
         {
             PlayerHealth = 0; 
             invulnTimer = inulnPeriod;
@@ -82,7 +83,7 @@ public class DamageHandler : MonoBehaviour
         }
         if (PlayerHealth <= 0)
         {
-            Debug.Log("Health: " + PlayerHealth);
+           
             Die();
             if(gameObject.name == "Player")
             {
@@ -93,7 +94,7 @@ public class DamageHandler : MonoBehaviour
         _coolDown -= Time.deltaTime;
         if (_coolDown <= 0)
         {
-            Debug.Log("deal curse damage!");
+            
             GameObject.Find("Player").GetComponent<Health>().PlayerHealth -= 1;
             PlayerHealth = PlayerHealth - 1; 
             _coolDown = DamageDelay;

@@ -13,11 +13,20 @@ public class PlayerController : MonoBehaviour
     float moveLimiter = 0.7f;
 
     public float runSpeed = 20.0f;
-    private bool _isDead = false; 
 
-    public float ThrowDelay = 0.25f;
-    //public GameObject ProjectilePrefab;
-    private float _coolDownTimer = 0;
+
+    /// <summary>
+    /// Available potion effects
+    /// 
+    /// Only 2 may be in effect player dies if all three effects are active. 
+    /// </summary>
+    public bool IsInvincible = false;
+    public bool IsLevitate = false;
+    public bool IsSpectral = false; 
+
+
+
+    private bool _isDead = false; 
 
     public Text GameOverText; 
 
@@ -35,23 +44,23 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
 
-        //_coolDownTimer -= Time.deltaTime;
-        //if (Input.GetMouseButtonDown(0) && _coolDownTimer <= 0)
-        //{
-        // // We clicked, but on what?
-        //Vector3 mouseWorldPos3D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector2 mousePos2D = new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
-
-        //        _coolDownTimer = ThrowDelay;
-
-        //   Vector3 direction = mouseWorldPos3D - transform.position;
-        //     direction.Normalize();
-        //    float zAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-        //    Quaternion rot = Quaternion.Euler(0, 0, zAngle);
-        //    Instantiate(ProjectilePrefab, body.transform.position, rot);
-        //}
+        if(IsInvincible && IsLevitate && IsSpectral)
+        {
+            gameObject.GetComponent<DamageHandler>().PlayerHealth = 0;
+            gameObject.GetComponent<Health>().PlayerHealth = 0; 
+        }
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "PotionOfLevitation")
+        {
+            IsLevitate = true;
+            collision.gameObject.SetActive(false);
+        }
+    }
+
 
     void FixedUpdate()
     {
