@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 15
+  GhostSprite: {fileID: -515568720839805702, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
+  blockingTileMapObject: {fileID: 0}
   IsInvincible: 0
   IsLevitate: 0
   IsSpectral: 0
