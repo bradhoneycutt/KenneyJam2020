@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9d9e868330244e045813f79b2bff3fce
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kenney Pixel
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: eefc7e26483e7aa44ad9d1b8c1742b12, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,40 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+  //todo  we can manage som things about the current level here, how do we do level handler passing variables to the next scene
+    GameObject player;
+    public Text GameOverText;
+    private bool _playerAlive = true; 
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+    }
+
+    private void Update()
+    {
+        if(!_playerAlive && Input.GetKeyDown(KeyCode.R)) { 
+            PlayGame();
+        }
+    }
+
+
+    public void PlayGame()
+    {
+        GameOverText.gameObject.SetActive(false);
+        
+        //todo how can we pass in scene name to reset player in current level
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void SetPlayerStatus(bool status)
+    {
+        _playerAlive = status;
+    }
+
+}
