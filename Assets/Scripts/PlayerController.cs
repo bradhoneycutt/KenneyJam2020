@@ -61,6 +61,11 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.SetActive(false);
             var audioManager = GameObject.Find("AudioManager");
             audioManager.GetComponent<AudioManager>().PlayPotionPickup();
+
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+            gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f); 
+
         }
     }
 

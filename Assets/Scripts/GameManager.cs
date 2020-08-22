@@ -10,17 +10,27 @@ public class GameManager : MonoBehaviour
     
     public Text GameOverText;
     private bool _playerAlive = true;
+    public Text PlayerDialogText;
+    public Image DialogModal; 
 
+
+    public float DialogDelay = .5f ; 
 
     private void Update()
     {
-        
+        DialogDelay -= Time.deltaTime;
+        if(DialogDelay <= 0)
+        {
+            DialogModal.gameObject.SetActive(false);
+            PlayerDialogText.gameObject.SetActive(false);
+
+        }
+
         if (!_playerAlive && Input.GetKeyDown(KeyCode.R)) { 
             PlayGame();
         }
         
     }
-
 
     public void PlayGame()
     {
@@ -33,6 +43,14 @@ public class GameManager : MonoBehaviour
     public void SetPlayerStatus(bool status)
     {
         _playerAlive = status;
+    }
+
+    public void PlayerDialog(string message, float dialogDelay = 1.5f)
+    {
+        DialogModal.gameObject.SetActive(true);
+        PlayerDialogText.text = message; 
+        PlayerDialogText.gameObject.SetActive(true);
+        DialogDelay = dialogDelay;
     }
 
 }
