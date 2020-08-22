@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Gives a value between -1 and 1
+        //Using named inputs for unity should support controller as well as keyboard 
+        //Edit>Prefrences>Input Manager to see supported values. 
+
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
 

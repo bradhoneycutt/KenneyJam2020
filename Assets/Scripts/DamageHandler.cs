@@ -6,13 +6,17 @@ using UnityEngine.Tilemaps;
 public class DamageHandler : MonoBehaviour
 {
 
-    public int Health = 1;
+    public int PlayerHealth = 6;
     public float inulnPeriod = 0;
     public GameObject damageTilemapGameObject;
     Tilemap tilemap;
 
     float invulnTimer = 0f;
     int correctLayer;
+
+    public float DamageDelay = 2.5f; //play with this value in the editor to find the right balance for the player to die from curse. 
+    private float _coolDown = 0f;
+
 
     SpriteRenderer spriteRender;
 
@@ -38,15 +42,16 @@ public class DamageHandler : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //traps, spikes and water instantly kill the player. Curse damage happens over time.
         Debug.Log("You Fucking died!");
         Debug.Log("Object Name: " +collision.gameObject.name); 
         if (tilemap != null && damageTilemapGameObject == collision.gameObject)
         {
-            Health--;
+            PlayerHealth = 0; 
             invulnTimer = inulnPeriod;
         }else if(collision.gameObject.name == "FireProjectile(Clone)")
         {
-            Health--;
+            PlayerHealth = 0;
             invulnTimer = inulnPeriod;
         }
 
@@ -75,15 +80,25 @@ public class DamageHandler : MonoBehaviour
                 }
             }
         }
-        if (Health <= 0)
+        if (PlayerHealth <= 0)
         {
-            Debug.Log("Health: " + Health);
+            Debug.Log("Health: " + PlayerHealth);
             Die();
             if(gameObject.name == "Player")
             {
                 gameObject.GetComponent<PlayerController>().KillPlayer(); 
             }
         }
+
+        _coolDown -= Time.deltaTime;
+        if (_coolDown <= 0)
+        {
+            Debug.Log("deal curse damage!");
+            GameObject.Find("Player").GetComponent<Health>().PlayerHealth -= 1;
+            PlayerHealth = PlayerHealth - 1; 
+            _coolDown = DamageDelay;
+        }
+
     }
 
     private void Die()

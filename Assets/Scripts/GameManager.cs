@@ -7,20 +7,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
   //todo  we can manage som things about the current level here, how do we do level handler passing variables to the next scene
-    GameObject player;
+    
     public Text GameOverText;
-    private bool _playerAlive = true; 
+    private bool _playerAlive = true;
 
-    private void Start()
-    {
-        player = GameObject.Find("Player");
-    }
 
     private void Update()
     {
-        if(!_playerAlive && Input.GetKeyDown(KeyCode.R)) { 
+        
+        if (!_playerAlive && Input.GetKeyDown(KeyCode.R)) { 
             PlayGame();
         }
+        
     }
 
 
