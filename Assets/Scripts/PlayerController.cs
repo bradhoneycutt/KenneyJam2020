@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.name == "WhiskeyOfStrength")
         {
+            Debug.Log("Whiskey");
             IsInvincible = true;
             collision.gameObject.SetActive(false);
             var audioManager = GameObject.Find("AudioManager");
