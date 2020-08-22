@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
 
         if (!_playerAlive && Input.GetKeyDown(KeyCode.R)) { 
-            PlayGame();
+            LoadScene2();
         }
         
     }
@@ -38,6 +38,14 @@ public class GameManager : MonoBehaviour
         
         //todo how can we pass in scene name to reset player in current level
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void LoadScene2() 
+    {
+        GameOverText.gameObject.SetActive(false);
+        
+        //todo how can we pass in scene name to reset player in current level
+        SceneManager.LoadScene("Level2");   
     }
 
     public void SetPlayerStatus(bool status)
