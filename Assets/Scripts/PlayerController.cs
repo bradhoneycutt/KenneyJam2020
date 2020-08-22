@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     float moveLimiter = 0.7f;
 
     public float runSpeed = 20.0f;
-
+    public Sprite GhostSprite; 
 
     public GameObject blockingTileMapObject;
 
@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
             audioManager.GetComponent<AudioManager>().PlayPotionPickup();
 
             var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+            gameObject.GetComponent<SpriteRenderer>().sprite = GhostSprite;
 
             gameManger.PlayerDialog("The vapors burn my nostrils. The world seems to fade around me.", 1f);
             blockingTileMapObject.GetComponent<TilemapCollider2D>().enabled = false;
