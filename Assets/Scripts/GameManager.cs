@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-  //todo  we can manage som things about the current level here, how do we do level handler passing variables to the next scene
-    
+        //todo  we can manage som things about the current level here, how do we do level handler passing variables to the next scene
+
     public Text GameOverText;
     public float DialogDelay = 1.25f;
     public Text PlayerDialogText;
     public Image DialogModal;
+
+
+
 
     private Scene _scene;
     private bool _playerAlive = true;
@@ -19,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _scene = SceneManager.GetActiveScene();
+
     }
 
     private void Update()

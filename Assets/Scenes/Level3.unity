@@ -10924,7 +10924,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4495588368833141586, guid: fda916ed47ce5ef4e87400edb48f5fe8, type: 3}
       propertyPath: NextScene
-      value: newLevel
+      value: level4
       objectReference: {fileID: 0}
     - target: {fileID: 4495588368833141587, guid: fda916ed47ce5ef4e87400edb48f5fe8, type: 3}
       propertyPath: m_LocalPosition.x
