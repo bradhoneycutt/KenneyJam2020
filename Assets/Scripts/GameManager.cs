@@ -11,10 +11,18 @@ public class GameManager : MonoBehaviour
     public Text GameOverText;
     private bool _playerAlive = true;
     public Text PlayerDialogText;
-    public Image DialogModal; 
+    public Image DialogModal;
+
+    private Scene _scene;
 
 
-    public float DialogDelay = 1.25f ; 
+    public float DialogDelay = 1.25f ;
+
+
+    private void Start()
+    {
+        _scene = SceneManager.GetActiveScene();
+    }
 
     private void Update()
     {
@@ -26,26 +34,24 @@ public class GameManager : MonoBehaviour
 
         }
 
-        if (!_playerAlive && Input.GetKeyDown(KeyCode.R)) { 
-            LoadScene2();
+        if (!_playerAlive && Input.GetKeyDown(KeyCode.R)) {
+            ResetScene();
         }
         
     }
 
-    public void PlayGame()
+    public void ResetScene()
     {
         GameOverText.gameObject.SetActive(false);
         
         //todo how can we pass in scene name to reset player in current level
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(_scene.name);
     }
 
-    public void LoadScene2() 
+    public void LoadNextSecne(string nextScene) 
     {
-        GameOverText.gameObject.SetActive(false);
-        
-        //todo how can we pass in scene name to reset player in current level
-        SceneManager.LoadScene("Level2");   
+        Debug.Log("Loading Scene: "+ nextScene);
+        SceneManager.LoadScene(nextScene);   
     }
 
     public void SetPlayerStatus(bool status)
