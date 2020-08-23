@@ -111,8 +111,17 @@ public class PlayerController : MonoBehaviour
             blockingTileMapObject.GetComponent<TilemapCollider2D>().enabled = false;
             PotCount += 1;
             PotionWarning();
+        }else if (collision.gameObject.name == "Meat")
+        {
+            collision.gameObject.SetActive(false);
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>(); 
+            gameManger.PlayerDialog("A momentary reprieve from the curse that seeks to destroy me.", 1f);
+            gameObject.GetComponent<DamageHandler>().PlayerHealth = 6;
+            gameObject.GetComponent<Health>().PlayerHealth = 6; 
         }
-       
+
+
+
     }
 
     private void PotionWarning(int potCount)
