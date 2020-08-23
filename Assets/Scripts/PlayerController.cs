@@ -149,6 +149,8 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
+        gameObject.GetComponent<DamageHandler>().PlayerHealth = 0;
+        gameObject.GetComponent<Health>().PlayerHealth = 0;
 
         GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayDeathSound();
         _isDead = true;
@@ -157,13 +159,11 @@ public class PlayerController : MonoBehaviour
         go.GetComponent<GameManager>().SetPlayerStatus(false);
         
         GameOverText.gameObject.SetActive(true);
-
-
     }
 
     public bool PlayerAlive()
     {
-        return _isDead;
+        return !_isDead;
     }
 
     public void PotionWarning()
