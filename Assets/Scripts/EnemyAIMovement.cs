@@ -143,20 +143,17 @@ public class EnemyAIMovement : MonoBehaviour
         List<Collider2D> contacts = new List<Collider2D>();
         int contactCount = collision.GetContacts(contacts);
 
+        int enemyColliderCount = 0;
         if (contacts != null && contacts.Count > 0)
         {
             foreach (Collider2D c in contacts)
             {
-                // I wish the colliders had tags too...
-                if (c.gameObject.name.Equals(gameObject.name) && c.bounds.extents.x == 0.5)
-                {
-                    Debug.Log(gameObject.name + " inner collider found as contact");
-                    return true;
-                }
+                // if collider contact's name matches this game object name, then increase count. If both colliders are found, then kill collider is touched as well
+                enemyColliderCount += (c.gameObject.name.Equals(gameObject.name) ? 1 : 0);
             }
         }
 
-        return false;
+        return enemyColliderCount == 2;
     }
 
 
