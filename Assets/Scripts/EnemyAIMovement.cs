@@ -157,6 +157,22 @@ public class EnemyAIMovement : MonoBehaviour
         return enemyColliderCount == 2;
     }
 
+    private bool canSeePlayer(Collider2D collision)
+    {
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, collision.gameObject.transform.position);
+
+        foreach(RaycastHit2D hit in hits)
+        {
+            if (!hit.collider.gameObject.CompareTag("Enemy") && !hit.collider.gameObject.CompareTag("Player"))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision) { 
         bool isPlayer = collision.gameObject.name == "Player";
@@ -173,7 +189,7 @@ public class EnemyAIMovement : MonoBehaviour
             // if inner collided hit with something else, stop moving
             endPosition = transform.position;
         }
-        else if (isPlayer && pursuitPlayerIfSeen)
+        else if (isPlayer && pursuitPlayerIfSeen && canSeePlayer(collision))
         {
             Debug.Log(gameObject.name + " saw player and starting pursuit!");
             currentSpeed = pursuitSpeed;
@@ -206,7 +222,7 @@ public class EnemyAIMovement : MonoBehaviour
         if (colliders != null && colliders.Length > 0)
         {
             foreach(CircleCollider2D c in colliders) {
-                Gizmos.DrawWireSphere(transform.position, c.radius);
+                Gizmos.DrawWireSphere(transform.position, c.bounds.extents.x);
             }
         }
     }
