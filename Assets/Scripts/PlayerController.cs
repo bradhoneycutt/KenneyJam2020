@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     
     private int PotCount = 0; 
     private bool _isDead = false;
-    private bool _potWarning = false;
 
     public Text GameOverText; 
 
@@ -130,10 +129,6 @@ public class PlayerController : MonoBehaviour
 
 
         }
-    }
-    private void PotionWarning(int potCount)
-    {
-        throw new NotImplementedException();
     }
 
     void FixedUpdate()
