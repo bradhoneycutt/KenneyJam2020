@@ -11,12 +11,14 @@ public class EnemyAIMovement : MonoBehaviour
     public int moveChance = 80;
 
     // Speed of normal traveling
+    [Range(0f, 50f)]
     public float walkingSpeed;
 
     // Option to allow enemy to pursuit player if seen
     public bool pursuitPlayerIfSeen = false;
 
     // Speed traveled when pursuing player
+    [Range(0f, 50f)]
     public float pursuitSpeed;
 
     // Number of seconds before changing movement
@@ -36,7 +38,7 @@ public class EnemyAIMovement : MonoBehaviour
 
     private bool canMove = true;
 
-    private GameObject _player;
+    private GameObject playerGameObject;
 
     private float timePassed = 0.0f;
 
@@ -46,7 +48,7 @@ public class EnemyAIMovement : MonoBehaviour
         currentSpeed = walkingSpeed;
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        _player = GameObject.FindGameObjectWithTag("Player");
+        playerGameObject = GameObject.FindGameObjectWithTag("Player");
         endPosition = transform.position;
     }
 
@@ -128,8 +130,7 @@ public class EnemyAIMovement : MonoBehaviour
 
     private bool PlayerIsAlive()
     {
-        // todo - playerController.PlayerAlive() actually returns "isDead" instead of a "is alive" boolean. Fix later :D
-        if (_player != null && !_player.GetComponent<PlayerController>().PlayerAlive())
+        if (playerGameObject != null && playerGameObject.GetComponent<PlayerController>().PlayerAlive())
         {
             return true;
         }
@@ -143,20 +144,17 @@ public class EnemyAIMovement : MonoBehaviour
         List<Collider2D> contacts = new List<Collider2D>();
         int contactCount = collision.GetContacts(contacts);
 
+        int enemyColliderCount = 0;
         if (contacts != null && contacts.Count > 0)
         {
             foreach (Collider2D c in contacts)
             {
-                // I wish the colliders had tags too...
-                if (c.gameObject.name.Equals(gameObject.name) && c.bounds.extents.x == 0.5)
-                {
-                    Debug.Log(gameObject.name + " inner collider found as contact");
-                    return true;
-                }
+                // if collider contact's name matches this game object name, then increase count. If both colliders are found, then kill collider is touched as well
+                enemyColliderCount += (c.gameObject.name.Equals(gameObject.name) ? 1 : 0);
             }
         }
 
-        return false;
+        return enemyColliderCount == 2;
     }
 
 
@@ -164,12 +162,10 @@ public class EnemyAIMovement : MonoBehaviour
         bool isPlayer = collision.gameObject.name == "Player";
         bool enemyKillCollider = KillColliderFound(collision);
 
-        if (isPlayer && enemyKillCollider && !_player.GetComponent<PlayerController>().IsInvincible)
+        if (isPlayer && enemyKillCollider && !playerGameObject.GetComponent<PlayerController>().IsInvincible)
         {
             Debug.Log("Player killed by " + gameObject.name);
-            _player.GetComponent<PlayerController>().KillPlayer();
-            _player.GetComponent<DamageHandler>().PlayerHealth = 0;
-            _player.GetComponent<Health>().PlayerHealth = 0;
+            playerGameObject.GetComponent<PlayerController>().KillPlayer();
             endPosition = transform.position;
         }
         else if (enemyKillCollider)
