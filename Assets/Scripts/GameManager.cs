@@ -9,17 +9,14 @@ public class GameManager : MonoBehaviour
   //todo  we can manage som things about the current level here, how do we do level handler passing variables to the next scene
     
     public Text GameOverText;
-    private bool _playerAlive = true;
+    public float DialogDelay = 1.25f;
     public Text PlayerDialogText;
     public Image DialogModal;
 
     private Scene _scene;
-
-
-    public float DialogDelay = 1.25f ;
-
-
-    private void Start()
+    private bool _playerAlive = true;
+    
+    private void Awake()
     {
         _scene = SceneManager.GetActiveScene();
     }
@@ -50,7 +47,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextSecne(string nextScene) 
     {
-        Debug.Log("Loading Scene: "+ nextScene);
         SceneManager.LoadScene(nextScene);   
     }
 
