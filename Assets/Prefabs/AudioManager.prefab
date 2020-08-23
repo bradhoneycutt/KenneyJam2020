@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2837263577562940196
+--- !u!1 &1904448983814371392
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2837263577562940202}
-  - component: {fileID: 2837263577562940197}
+  - component: {fileID: 1904448983814371454}
+  - component: {fileID: 1904448983814371393}
   m_Layer: 0
-  m_Name: ProjectileSpawner
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2837263577562940202
+--- !u!4 &1904448983814371454
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2837263577562940196}
+  m_GameObject: {fileID: 1904448983814371392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.38, y: -4.7, z: -6.230463}
+  m_LocalPosition: {x: 188.7153, y: 846.04193, z: -36.97943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2837263577562940197
+--- !u!114 &1904448983814371393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2837263577562940196}
+  m_GameObject: {fileID: 1904448983814371392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a8036c3e63a464b851f2626c48d5a2, type: 3}
+  m_Script: {fileID: 11500000, guid: ae1513242ac144649adaf4634d4f6712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRate: 5
-  spawnDistance: 20
-  proximtySpawn: 25
-  directionX: 0
-  directionY: -1
-  enemyPrefab:
-  - {fileID: 6006508417850489299, guid: 59d28371d583b66448226b36036a31d8, type: 3}
+  PotionSound: {fileID: 8300000, guid: 638b75191bcc3014eac45a802cba0242, type: 3}
+  DamageSound: {fileID: 8300000, guid: 86264984458a4f942bafcc90c31ea9d2, type: 3}
+  DeathSound: {fileID: 8300000, guid: 750e1c45234cd1f4fb76c7220d8851d0, type: 3}
+  LevelExitSound: {fileID: 8300000, guid: ed36a0ded0d07d842bdee250a269d7ac, type: 3}

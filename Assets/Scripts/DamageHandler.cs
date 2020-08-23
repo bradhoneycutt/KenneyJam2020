@@ -25,11 +25,6 @@ public class DamageHandler : MonoBehaviour
     private void Start()
     {
 
-        //_damageAudioSource = gameObject.AddComponent<AudioSource>();
-        //_damageAudioSource.loop = false;
-        //_damageAudioSource.playOnAwake = false;
-        //_damageAudioSource.clip = DamageSound;
-
         correctLayer = gameObject.layer;
         spriteRender = GetComponent<SpriteRenderer>();
         if (spriteRender == null)
@@ -58,7 +53,7 @@ public class DamageHandler : MonoBehaviour
         {
             PlayerHealth = 0; 
             invulnTimer = inulnPeriod;
-        }else if(collision.gameObject.name == "FireProjectile(Clone)")
+        }else if(collision.gameObject.tag == "Projectile" && !gameObject.GetComponent<PlayerController>().IsInvincible)
         {
             PlayerHealth = 0;
             invulnTimer = inulnPeriod;
@@ -106,13 +101,26 @@ public class DamageHandler : MonoBehaviour
             GameObject.Find("Player").GetComponent<Health>().PlayerHealth -= 1;
             PlayerHealth = PlayerHealth - 1; 
             _coolDown = DamageDelay;
-            //_damageAudioSource.Play();
+
+            StartCoroutine(DamageFlash());
+
             GameObject.Find("AudioManager").GetComponent<AudioManager>().PlayDamageSound();
         }
 
     }
 
-    private void Die()
+    IEnumerator DamageFlash()
+    {
+        var renderer = gameObject.GetComponent<SpriteRenderer>();
+        var normal = renderer.material.color;
+        renderer.material.color = Color.green;
+        //renderer.material.color = collideColor;
+        yield return new WaitForSeconds(.5f);
+        renderer.material.color = normal;
+        
+    }
+
+        private void Die()
     {
         Destroy(gameObject);
     }

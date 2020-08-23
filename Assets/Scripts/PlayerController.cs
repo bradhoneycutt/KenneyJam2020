@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +16,12 @@ public class PlayerController : MonoBehaviour
     float moveLimiter = 0.7f;
 
     public float runSpeed = 20.0f;
+    public Sprite GhostSprite; 
+
+    public GameObject blockingTileMapObject;
+
+
+    Tilemap tilemap;
 
 
     /// <summary>
@@ -24,14 +33,19 @@ public class PlayerController : MonoBehaviour
     public bool IsLevitate = false;
     public bool IsSpectral = false;
     
-    private bool _isDead = false; 
+    private int PotCount = 0; 
+    private bool _isDead = false;
+    private bool _potWarning = false;
 
     public Text GameOverText; 
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-
+        if (blockingTileMapObject != null)
+        {
+            tilemap = blockingTileMapObject.GetComponent<Tilemap>();
+        }
 
 
     }
@@ -50,20 +64,76 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<DamageHandler>().PlayerHealth = 0;
             gameObject.GetComponent<Health>().PlayerHealth = 0; 
         }
+        
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "PotionOfLevitation")
+        if (collision.gameObject.name == "PotionOfLevitation")
         {
             IsLevitate = true;
             collision.gameObject.SetActive(false);
             var audioManager = GameObject.Find("AudioManager");
             audioManager.GetComponent<AudioManager>().PlayPotionPickup();
+
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+            gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f);
+            PotCount += 1;
+            PotionWarning();
+        }
+        else if (collision.gameObject.name == "WhiskeyOfStrength")
+        {
+            Debug.Log("Whiskey");
+            IsInvincible = true;
+            collision.gameObject.SetActive(false);
+            var audioManager = GameObject.Find("AudioManager");
+            audioManager.GetComponent<AudioManager>().PlayPotionPickup();
+
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+            gameManger.PlayerDialog("Imbibing this familar spirit steels resolve and body.", 1f);
+            PotCount += 1;
+            PotionWarning();
+        }
+        else if (collision.gameObject.name == "ReapersBreath")
+        {
+            IsSpectral = true;
+            collision.gameObject.SetActive(false);
+            var audioManager = GameObject.Find("AudioManager");
+            audioManager.GetComponent<AudioManager>().PlayPotionPickup();
+
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+            gameObject.GetComponent<SpriteRenderer>().sprite = GhostSprite;
+
+            gameManger.PlayerDialog("The vapors burn my nostrils. The world seems to fade around me.", 1f);
+            blockingTileMapObject.GetComponent<TilemapCollider2D>().enabled = false;
+            PotCount += 1;
+
+        }
+        else if (collision.gameObject.name == "Meat")
+        {
+            collision.gameObject.SetActive(false);
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+            gameManger.PlayerDialog("A momentary reprieve from the curse that seeks to destroy me.", 1f);
+            gameObject.GetComponent<DamageHandler>().PlayerHealth = 6;
+            gameObject.GetComponent<Health>().PlayerHealth = 6;
+        }
+        else if (collision.gameObject.name == "Candle")
+        {
+            collision.gameObject.SetActive(false);
+            var light  = gameObject.GetComponentInChildren<Light>();
+            light.range = 15; 
+
+
+
         }
     }
-
+    private void PotionWarning(int potCount)
+    {
+        throw new NotImplementedException();
+    }
 
     void FixedUpdate()
     {
@@ -94,5 +164,15 @@ public class PlayerController : MonoBehaviour
     public bool PlayerAlive()
     {
         return _isDead;
+    }
+
+    public void PotionWarning()
+    {
+        //if(PotCount == 2)
+        //{
+        //    var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        //    gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f);
+        //}
     }
 }
