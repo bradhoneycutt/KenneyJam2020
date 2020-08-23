@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverText: {fileID: 0}
+  DialogDelay: 1.5
   PlayerDialogText: {fileID: 0}
   DialogModal: {fileID: 0}
-  DialogDelay: 1.5

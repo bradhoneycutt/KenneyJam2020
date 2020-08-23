@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
             gameManger.PlayerDialog("The vapors burn my nostrils. The world seems to fade around me.", 1f);
             blockingTileMapObject.GetComponent<TilemapCollider2D>().enabled = false;
             PotCount += 1;
+            PotionWarning();
 
         }
         else if (collision.gameObject.name == "Meat")
@@ -168,11 +169,6 @@ public class PlayerController : MonoBehaviour
 
     public void PotionWarning()
     {
-        //if(PotCount == 2)
-        //{
-        //    var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-        //    gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f);
-        //}
+        gameObject.GetComponent<PotionSickness>().NumberOfPotions += 1; 
     }
 }

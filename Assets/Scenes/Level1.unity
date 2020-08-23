@@ -241,6 +241,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &165429221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 165429221, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 7396558486608390840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &194179570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 194179570, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 7396558486608390840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404272466
 GameObject:
   m_ObjectHideFlags: 0
@@ -9528,6 +9550,17 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &1699553741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1699553741, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 7396558486608390840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1840511236
 GameObject:
   m_ObjectHideFlags: 0
@@ -9968,6 +10001,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 51466683, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
+      propertyPath: Skulls.Array.data[0]
+      value: 
+      objectReference: {fileID: 1699553741}
+    - target: {fileID: 51466683, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
+      propertyPath: Skulls.Array.data[1]
+      value: 
+      objectReference: {fileID: 194179570}
+    - target: {fileID: 51466683, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
+      propertyPath: Skulls.Array.data[2]
+      value: 
+      objectReference: {fileID: 165429221}
     - target: {fileID: 2927074466861520737, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10048,10 +10093,6 @@ PrefabInstance:
       propertyPath: Hearts.Array.data[5]
       value: 
       objectReference: {fileID: 1070081375}
-    - target: {fileID: 4922915546412136779, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
-      propertyPath: m_Range
-      value: 99
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
 --- !u!1001 &4495588368760844485
@@ -10174,10 +10215,6 @@ PrefabInstance:
       propertyPath: DialogModal
       value: 
       objectReference: {fileID: 1239263581}
-    - target: {fileID: 4629903365484243881, guid: 4d1824406f371ac469d62de026f0ade3, type: 3}
-      propertyPath: NextScene
-      value: Level2
-      objectReference: {fileID: 0}
     - target: {fileID: 4629903365484243895, guid: 4d1824406f371ac469d62de026f0ade3, type: 3}
       propertyPath: m_Name
       value: GameManager

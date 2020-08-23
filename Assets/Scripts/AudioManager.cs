@@ -8,12 +8,13 @@ public class AudioManager : MonoBehaviour
     public AudioClip DamageSound;
     public AudioClip DeathSound;
     public AudioClip LevelExitSound;
-
+    public AudioClip Theme;
 
     private AudioSource _damageAudioSource;
     private AudioSource _potionAudioSource;
     private AudioSource _deathAudioSource;
-    private AudioSource _levelExitSource; 
+    private AudioSource _levelExitSource;
+    private AudioSource _themeSource;
 
     private void Start()
     {
@@ -36,6 +37,13 @@ public class AudioManager : MonoBehaviour
         _levelExitSource.loop = false;
         _levelExitSource.playOnAwake = false;
         _levelExitSource.clip = DeathSound;
+
+        _themeSource = gameObject.AddComponent<AudioSource>();
+        _themeSource.loop = true;
+        _themeSource.playOnAwake = true;
+        _themeSource.clip = Theme;
+        _themeSource.volume = .15f;
+        _themeSource.Play();
     }
 
     // Update is called once per frame
@@ -64,4 +72,8 @@ public class AudioManager : MonoBehaviour
         _levelExitSource.Play();
     }
 
+    public void KillMusic()
+    {
+        _themeSource.Stop();
+    }
 }

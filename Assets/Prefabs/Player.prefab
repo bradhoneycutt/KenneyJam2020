@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2927074466861520740}
   - component: {fileID: 3792495146908537792}
   - component: {fileID: 3792495146908537793}
+  - component: {fileID: 51466683}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -194,6 +195,25 @@ MonoBehaviour:
   HalfHeart: {fileID: -1472550437543738901, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
   FullHeart: {fileID: -7598079293263388763, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
   EmptyHeart: {fileID: 6875251341071537486, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
+--- !u!114 &51466683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2927074466861520737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c7ffe61094b7743a2de18b50d1b6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Potions: 3
+  NumberOfPotions: 0
+  Skulls:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Skull: {fileID: 7816980775827614150, guid: 6e7728fd7ca0afc428fdbfa4c004beae, type: 3}
 --- !u!1 &8609243240976586412
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +258,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
-  m_Range: 10
+  m_Range: 500
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

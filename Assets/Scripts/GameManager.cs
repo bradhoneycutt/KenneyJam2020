@@ -13,16 +13,19 @@ public class GameManager : MonoBehaviour
     public float DialogDelay = 1.25f;
     public Text PlayerDialogText;
     public Image DialogModal;
-
-
-
-
+       
     private Scene _scene;
     private bool _playerAlive = true;
-    
+  
+
+
     private void Awake()
     {
         _scene = SceneManager.GetActiveScene();
+       
+    }
+    private void Start()
+    {
 
     }
 

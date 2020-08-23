@@ -47,3 +47,4 @@ MonoBehaviour:
   DamageSound: {fileID: 8300000, guid: 86264984458a4f942bafcc90c31ea9d2, type: 3}
   DeathSound: {fileID: 8300000, guid: 750e1c45234cd1f4fb76c7220d8851d0, type: 3}
   LevelExitSound: {fileID: 8300000, guid: ed36a0ded0d07d842bdee250a269d7ac, type: 3}
+  Theme: {fileID: 8300000, guid: dd51212d180ce4944b734f69748e8ff9, type: 3}
