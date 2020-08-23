@@ -36,7 +36,7 @@ public class EnemyAIMovement : MonoBehaviour
 
     private bool canMove = true;
 
-    private PlayerController playerController;
+    private GameObject _player;
 
     private float timePassed = 0.0f;
 
@@ -46,7 +46,7 @@ public class EnemyAIMovement : MonoBehaviour
         currentSpeed = walkingSpeed;
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        _player = GameObject.FindGameObjectWithTag("Player");
         endPosition = transform.position;
     }
 
@@ -129,7 +129,7 @@ public class EnemyAIMovement : MonoBehaviour
     private bool PlayerIsAlive()
     {
         // todo - playerController.PlayerAlive() actually returns "isDead" instead of a "is alive" boolean. Fix later :D
-        if (playerController != null && !playerController.PlayerAlive())
+        if (_player != null && !_player.GetComponent<PlayerController>().PlayerAlive())
         {
             return true;
         }
@@ -164,10 +164,12 @@ public class EnemyAIMovement : MonoBehaviour
         bool isPlayer = collision.gameObject.name == "Player";
         bool enemyKillCollider = KillColliderFound(collision);
 
-        if (isPlayer && enemyKillCollider)
+        if (isPlayer && enemyKillCollider && !_player.GetComponent<PlayerController>().IsInvincible)
         {
             Debug.Log("Player killed by " + gameObject.name);
-            playerController.KillPlayer();
+            _player.GetComponent<PlayerController>().KillPlayer();
+            _player.GetComponent<DamageHandler>().PlayerHealth = 0;
+            _player.GetComponent<Health>().PlayerHealth = 0;
             endPosition = transform.position;
         }
         else if (enemyKillCollider)
