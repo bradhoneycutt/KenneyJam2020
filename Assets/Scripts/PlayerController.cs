@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
     public bool IsInvincible = false;
     public bool IsLevitate = false;
     public bool IsSpectral = false;
-    
+
+    private int PotCount = 0; 
     private bool _isDead = false; 
 
     public Text GameOverText; 
@@ -75,8 +76,8 @@ public class PlayerController : MonoBehaviour
 
             var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-            gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f); 
-
+            gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f);
+            PotCount+=1; 
         }
         else if (collision.gameObject.name == "WhiskeyOfStrength")
         {
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
             var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
 
             gameManger.PlayerDialog("Imbibing this familar spirit steels resolve and body.", 1f);
-
+            PotCount += 1;
         }
         else if(collision.gameObject.name == "ReapersBreath")
         {
@@ -103,7 +104,17 @@ public class PlayerController : MonoBehaviour
 
             gameManger.PlayerDialog("The vapors burn my nostrils. The world seems to fade around me.", 1f);
             blockingTileMapObject.GetComponent<TilemapCollider2D>().enabled = false;
+            PotCount += 1;
         }
+
+        if(PotCount == 2)
+        {
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
+            gameManger.PlayerDialog("These draughts imbue me with renewed vigor. Another may end me.", 1.5f);
+            
+
+        }
+
     }
 
     void FixedUpdate()
