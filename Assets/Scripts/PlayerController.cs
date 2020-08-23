@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "PotionOfLevitation")
+        if (collision.gameObject.name == "PotionOfLevitation")
         {
             IsLevitate = true;
             collision.gameObject.SetActive(false);
@@ -80,8 +80,8 @@ public class PlayerController : MonoBehaviour
             var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
 
             gameManger.PlayerDialog("This strange brew makes me feel lighter than air.", 1f);
-            PotCount+=1;
-            PotionWarning(); 
+            PotCount += 1;
+            PotionWarning();
         }
         else if (collision.gameObject.name == "WhiskeyOfStrength")
         {
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
             PotCount += 1;
             PotionWarning();
         }
-        else if(collision.gameObject.name == "ReapersBreath")
+        else if (collision.gameObject.name == "ReapersBreath")
         {
             IsSpectral = true;
             collision.gameObject.SetActive(false);
@@ -110,20 +110,26 @@ public class PlayerController : MonoBehaviour
             gameManger.PlayerDialog("The vapors burn my nostrils. The world seems to fade around me.", 1f);
             blockingTileMapObject.GetComponent<TilemapCollider2D>().enabled = false;
             PotCount += 1;
-            PotionWarning();
-        }else if (collision.gameObject.name == "Meat")
+
+        }
+        else if (collision.gameObject.name == "Meat")
         {
             collision.gameObject.SetActive(false);
-            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>(); 
+            var gameManger = GameObject.Find("GameManager").GetComponent<GameManager>();
             gameManger.PlayerDialog("A momentary reprieve from the curse that seeks to destroy me.", 1f);
             gameObject.GetComponent<DamageHandler>().PlayerHealth = 6;
-            gameObject.GetComponent<Health>().PlayerHealth = 6; 
+            gameObject.GetComponent<Health>().PlayerHealth = 6;
         }
+        else if (collision.gameObject.name == "Candle")
+        {
+            collision.gameObject.SetActive(false);
+            var light  = gameObject.GetComponentInChildren<Light>();
+            light.range = 15; 
 
 
 
+        }
     }
-
     private void PotionWarning(int potCount)
     {
         throw new NotImplementedException();
