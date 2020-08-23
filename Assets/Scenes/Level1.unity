@@ -10093,6 +10093,10 @@ PrefabInstance:
       propertyPath: Hearts.Array.data[5]
       value: 
       objectReference: {fileID: 1070081375}
+    - target: {fileID: 4922915546412136779, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
 --- !u!1001 &4495588368760844485

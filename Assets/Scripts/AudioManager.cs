@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,12 +10,21 @@ public class AudioManager : MonoBehaviour
     public AudioClip DeathSound;
     public AudioClip LevelExitSound;
     public AudioClip Theme;
+    public AudioClip GameOver; 
 
     private AudioSource _damageAudioSource;
     private AudioSource _potionAudioSource;
     private AudioSource _deathAudioSource;
     private AudioSource _levelExitSource;
     private AudioSource _themeSource;
+    private Scene _scene;
+
+
+    private void Awake()
+    {
+        _scene = SceneManager.GetActiveScene();
+
+    }
 
     private void Start()
     {
@@ -38,12 +48,23 @@ public class AudioManager : MonoBehaviour
         _levelExitSource.playOnAwake = false;
         _levelExitSource.clip = DeathSound;
 
-        _themeSource = gameObject.AddComponent<AudioSource>();
-        _themeSource.loop = true;
-        _themeSource.playOnAwake = true;
-        _themeSource.clip = Theme;
-        _themeSource.volume = .15f;
-        _themeSource.Play();
+        if (_scene.name != "GameOver")
+        {
+            _themeSource = gameObject.AddComponent<AudioSource>();
+            _themeSource.loop = true;
+            _themeSource.playOnAwake = true;
+            _themeSource.clip = Theme;
+            _themeSource.volume = .15f;
+            _themeSource.Play();
+        }else
+        {
+            _themeSource = gameObject.AddComponent<AudioSource>();
+            _themeSource.loop = true;
+            _themeSource.playOnAwake = true;
+            _themeSource.clip = GameOver;
+            _themeSource.volume = .15f;
+            _themeSource.Play();
+        }
     }
 
     // Update is called once per frame

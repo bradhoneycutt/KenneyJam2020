@@ -944,6 +944,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+--- !u!114 &440617384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7396558487594569703, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 440617383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &440617385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7396558486562908449, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 440617383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &440617386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7396558486761272430, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 440617383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &440617387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7396558486744519499, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 440617383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &440617388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7396558486745494045, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 440617383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &440617389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7396558486629949185, guid: 970553dd33239be499b896f962ecdbef, type: 3}
+  m_PrefabInstance: {fileID: 440617383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &663145603
 GameObject:
   m_ObjectHideFlags: 0
@@ -10252,26 +10318,26 @@ PrefabInstance:
     - target: {fileID: 3792495146908537793, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: Hearts.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 440617389}
     - target: {fileID: 3792495146908537793, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: Hearts.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 440617388}
     - target: {fileID: 3792495146908537793, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: Hearts.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 440617387}
     - target: {fileID: 3792495146908537793, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: Hearts.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 440617386}
     - target: {fileID: 3792495146908537793, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: Hearts.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 440617385}
     - target: {fileID: 3792495146908537793, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
       propertyPath: Hearts.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 440617384}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f1beea25a87fa245948a00fa0bd152f, type: 3}
